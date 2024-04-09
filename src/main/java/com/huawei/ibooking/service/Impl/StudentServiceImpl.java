@@ -38,7 +38,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public boolean deleteStudentByStuId(String stuId) {
+    public boolean deleteStudentById(String stuId) {
         return studentMapper.deleteStudentByStuId(stuId) > 0;
     }
 }

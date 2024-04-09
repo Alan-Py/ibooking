@@ -25,7 +25,7 @@ public class StudentController {
 
     @GetMapping
     public ResponseEntity<List<Student>> list() {
-        final List<Student> students = studentService.getAllStudents();
+        List<Student> students = studentService.getAllStudents();
 
         return new ResponseEntity<>(students, HttpStatus.OK);
     }
@@ -72,7 +72,7 @@ public class StudentController {
     }
     @DeleteMapping(value = "/{stuId}")
     public ResponseEntity<?> deleteStudent(@PathVariable("stuId") String stuId) {
-        boolean result = studentService.deleteStudentByStuId(stuId);
+        boolean result = studentService.deleteStudentById(stuId);
         if (result) {
             // 删除成功，返回200 OK状态码和成功消息
             return new ResponseEntity<>("Student deleted successfully", HttpStatus.OK);

@@ -21,5 +21,5 @@ public interface StudentService {
     // 更新学生信息
     boolean updateStudent(Student student);
     // 删除学生信息
-    boolean deleteStudentByStuId(String stuId);
+    boolean deleteStudentById(String roomId);
 }
