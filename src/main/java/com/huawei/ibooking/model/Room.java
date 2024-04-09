@@ -27,32 +27,32 @@ public class Room {
     /**
      * 房间ID
      */
-    private String room_id;
+    private String roomId;
 
     /**
      * 房间名称
      */
-    private String room_name;
+    private String roomName;
 
     /**
      * 所属楼宇ID
      */
-    private String building_id;
+    private String buildingId;
 
     /**
      * 座位数量
      */
-    private Integer seat_amount;
+    private Integer seatAmount;
 
     /**
-     * 开放时间（单位：分钟）
+     * 开放时间（单位：小时）
      */
-    private Integer open_time;
+    private Integer openTime;
 
     /**
-     * 关闭时间（单位：分钟）
+     * 关闭时间（单位：小时）
      */
-    private Integer close_time;
+    private Integer closeTime;
 
     /**
      * 是否允许过夜
@@ -62,7 +62,7 @@ public class Room {
     /**
      * 最大预订时长（单位：分钟）
      */
-    private Integer max_booking_time;
+    private Integer maxBookingTime;
 
     /**
      * 房间是否开放

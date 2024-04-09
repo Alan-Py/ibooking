@@ -50,6 +50,8 @@ create table seat
     room_id varchar(16) not null,
     socket  BOOLEAN     not null,
     open    BOOLEAN     not null,
+    today_book  varchar(25) not null,
+    next_book   varchar(25) not null,
     primary key (id, room_id)
 );
 

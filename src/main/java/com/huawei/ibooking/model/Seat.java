@@ -27,12 +27,12 @@ public class Seat {
     /**
      * 座位ID
      */
-    private String seat_id;
+    private String seatId;
 
     /**
      * 房间ID
      */
-    private String room_id;
+    private String roomId;
 
     /**
      * 是否配备电源插座
@@ -43,4 +43,13 @@ public class Seat {
      * 房间是否开放
      */
     private Boolean open;
+    /**
+     * 今天座位是否被占用
+     */
+    private String todayBook;
+    /**
+     * 明天座位是否被占用
+     */
+    private String nextBook;
+
 }

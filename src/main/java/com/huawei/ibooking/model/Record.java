@@ -28,32 +28,32 @@ public class Record {
     /**
      * 座位ID
      */
-    private String seat_id;
+    private String seatId;
 
     /**
      * 房间ID
      */
-    private String room_id;
+    private String roomId;
 
     /**
      * 学生ID
      */
-    private String stu_id;
+    private String stuId;
 
     /**
      * 预订开始时间（单位：分钟）
      */
-    private Integer start_time;
+    private Integer startTime;
 
     /**
      * 预订结束时间（单位：分钟）
      */
-    private Integer end_time;
+    private Integer endTime;
 
     /**
      * 预订日期
      */
-    private Date booking_date;
+    private Date bookingDate;
 
     /**
      * 预订状态

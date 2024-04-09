@@ -16,10 +16,6 @@ spring:
       data-locations: classpath:data.sql
       mode: always
 
-mybatis:
-  mapper-locations: classpath:com.huawei.ibooking.mapper/*.xml
-  type-aliases-package: com.huawei.ibooking.model
-
 logging:
   level:
     com.huawei.ibooking: debug
