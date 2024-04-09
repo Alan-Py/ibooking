@@ -17,7 +17,6 @@ create table student
 (
     id       int         not null auto_increment,
     stu_id   varchar(16) not null,
-    seat_id   varchar(16) not null,
     name     varchar(16) not null,
     email    varchar(32) not null,
     phone    varchar(16) not null,
@@ -46,11 +45,12 @@ create table room
 drop table if exists seat;
 create table seat
 (
-    id          int         not null auto_increment,
-    seat_id     varchar(16) not null,
-    room_id     varchar(16) not null,
-    socket      BOOLEAN not null,
-    primary key (id,room_id)
+    id      int         not null auto_increment,
+    seat_id varchar(16) not null,
+    room_id varchar(16) not null,
+    socket  BOOLEAN     not null,
+    open    BOOLEAN     not null,
+    primary key (id, room_id)
 );
 
 drop table if exists record;

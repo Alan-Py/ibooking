@@ -4,18 +4,20 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>
- * 管理员表
+ * 学生表
  * </p>
  *
  * @author panyue
  * @since 2024-04-09
  */
 @Data
-@TableName("admin")
-public class Admin{
+@NoArgsConstructor
+@TableName("student")
+public class Student{
     /**
      * 主键ID
      */
@@ -23,17 +25,29 @@ public class Admin{
     private Integer id;
 
     /**
-     * 管理员ID
+     * 学生ID
      */
-    private String adminId;
+    private String stuId;
 
     /**
-     * 管理员姓名
+     * 学生姓名
      */
-    private String adminName;
+    private String name;
 
     /**
-     * 管理员密码
+     * 电子邮件地址
+     */
+    private String email;
+
+    /**
+     * 电话号码
+     */
+    private String phone;
+
+    /**
+     * 学生密码
      */
     private String password;
+
+    // 省略getter和setter方法
 }
