@@ -28,8 +28,8 @@ public class SeatController {
             @RequestParam(required = false) String seatId,
             @RequestParam(required = false) String roomId,
             @RequestParam(required = false) Boolean socket,
-            @RequestParam(required = false) int start_time,
-            @RequestParam(required = false) int end_time,
+            @RequestParam(value = "start_time", required = false) Integer startTime,
+            @RequestParam(value = "end_time",required = false) Integer endTime,
             @RequestParam(required = false) Boolean isToday,
             @RequestParam(required = false) Boolean isEmpty)
     {
@@ -37,10 +37,19 @@ public class SeatController {
         seatReq.setSeatId(seatId);
         seatReq.setRoomId(roomId);
         seatReq.setSocket(socket);
-        seatReq.setStartTime(start_time);
-        seatReq.setEndTime(end_time);
-        seatReq.setIsToday(isToday);
-        seatReq.setIsEmpty(isEmpty);
+        if(startTime != null) {
+            seatReq.setStartTime(startTime);
+        }
+        if(endTime != null) {
+            seatReq.setEndTime(endTime);
+        }
+        if(isToday != null) {
+            seatReq.setIsToday(isToday);
+        }
+        if(isEmpty != null) {
+            seatReq.setIsEmpty(isEmpty);
+        }
+        System.out.println(seatReq.toString());
         List<Seat> seatList = seatService.getSeatList(seatReq);
         return new ResponseEntity<>(seatList, HttpStatus.OK);
     }

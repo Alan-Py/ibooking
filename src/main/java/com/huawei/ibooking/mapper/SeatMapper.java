@@ -26,8 +26,8 @@ public interface SeatMapper extends BaseMapper<Seat> {
     List<Seat> getSeatListByRoomId(String roomId);
     //模糊多条件查询
     @Select("select * from seat where "
-            + "(roomId = #{roomId} or #{roomId} is null) "
-            + "and (seatId = #{seatId} or #{seatId} is null) "
+            + "(room_id = #{roomId} or #{roomId} is null) "
+            + "and (seat_id = #{seatId} or #{seatId} is null) "
             + "and (socket = #{socket} or #{socket} is null)")
     List<Seat> findSeatsByReq(@Param("roomId") String roomId,
                               @Param("seatId") String seatId,
