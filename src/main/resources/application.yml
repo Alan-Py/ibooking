@@ -10,11 +10,13 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.h2.Driver
 
+
   sql:
     init:
       schema-locations: classpath:schema.sql
       data-locations: classpath:data.sql
       mode: always
+      encoding: UTF-8
 
 logging:
   level:
