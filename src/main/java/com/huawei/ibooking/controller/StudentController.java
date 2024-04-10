@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
+
 /**
  * <p>
  * 学生表controller层
@@ -22,6 +24,8 @@ import java.util.Optional;
 public class StudentController {
     @Autowired
     private StudentService studentService;
+
+    private static final Logger LOGGER = Logger.getLogger(StudentController.class.getName());
 
     @GetMapping
     public ResponseEntity<List<Student>> list() {

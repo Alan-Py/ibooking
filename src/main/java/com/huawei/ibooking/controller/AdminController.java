@@ -16,7 +16,7 @@ import java.util.List;
  * @since 2024-04-09
  */
 @RestController
-@RequestMapping("/api/admins")
+@RequestMapping("/api/admin")
 public class AdminController {
     private final AdminService adminService;
 

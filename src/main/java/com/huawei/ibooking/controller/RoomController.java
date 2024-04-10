@@ -60,6 +60,7 @@ public class RoomController {
         }
     }
     // 更新房间信息
+    @PutMapping(value = "/update")
     public ResponseEntity<?> updateRoom(@RequestBody Room room){
         boolean isSuccess = roomService.updateRoom(room);
         if (isSuccess) {

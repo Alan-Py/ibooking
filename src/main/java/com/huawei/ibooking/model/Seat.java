@@ -40,7 +40,7 @@ public class Seat {
     private Boolean socket;
 
     /**
-     * 房间是否开放
+     * 座位是否正在使用
      */
     private Boolean open;
     /**

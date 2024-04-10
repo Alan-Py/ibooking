@@ -10,6 +10,7 @@ import java.util.List;
  * @author panyue
  * @since 2024-04-09
  */
+
 public interface AdminService {
     // 获取所有管理员信息
     List<Admin> getAllAdmins();
