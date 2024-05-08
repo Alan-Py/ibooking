@@ -1,5 +1,7 @@
 package com.huawei.ibooking.controller;
+import com.huawei.ibooking.common.ResponseData;
 import com.huawei.ibooking.model.Admin;
+import com.huawei.ibooking.model.dto.AdminReq;
 import com.huawei.ibooking.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,8 @@ public class AdminController {
     public AdminController(AdminService adminService) {
         this.adminService = adminService;
     }
+//    @PostMapping("/login")
+
     // 获取所有管理员信息
     @GetMapping
     public ResponseEntity<List<Admin>> getAllAdmins() {
@@ -79,6 +83,23 @@ public class AdminController {
             return new ResponseEntity<>("admin deleted successfully", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("admin not found or delete failed", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    /***
+     * 管理员登录
+     * @param req
+     * @return
+     */
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody AdminReq req) {
+        Admin admin1 = adminService.getAdminByAdminId(req.getAdminId());
+        if (admin1 != null && admin1.getPassword().equals(req.getPassword())) {
+            // 返回student信息以及0表示成功
+            return ResponseEntity.ok(new ResponseData(0, "成功"));
+        } else {
+            //返回状态码-1，用户名密码错误
+            return ResponseEntity.ok(new ResponseData(-1, "用户名或密码错误"));
         }
     }
 

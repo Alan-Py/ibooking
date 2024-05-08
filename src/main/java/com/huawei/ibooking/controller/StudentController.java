@@ -1,6 +1,8 @@
 package com.huawei.ibooking.controller;
 
+import com.huawei.ibooking.common.ResponseData;
 import com.huawei.ibooking.model.Student;
+import com.huawei.ibooking.model.dto.StudentReq;
 import com.huawei.ibooking.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,48 @@ public class StudentController {
     private StudentService studentService;
 
     private static final Logger LOGGER = Logger.getLogger(StudentController.class.getName());
+
+    /***
+     * 学生登录
+     * @param req
+     * @return
+     */
+    @PostMapping(value = "/login")
+    public ResponseEntity<?> login(@RequestBody StudentReq req) {
+        Student student1 = studentService.getStudentByStuId(req.getStuId());
+        if (student1 != null && student1.getPassword().equals(req.getPassword())) {
+            // 返回student信息以及0表示成功
+            return ResponseEntity.ok(new ResponseData(0, "成功"));
+        } else {
+            //返回状态码-1，用户名密码错误
+            return ResponseEntity.ok(new ResponseData(-1, "用户名或密码错误"));
+        }
+    }
+
+    /***
+     * 学生注册
+     * @param student
+     * @return
+     */
+    @PostMapping(value = "/register")
+    public ResponseEntity<?> register(@RequestBody Student student) {
+        Student res = studentService.getStudentByStuId(student.getStuId());
+        if (res != null) {
+            //返回状态码-1，用户已存在
+            return ResponseEntity.ok(new ResponseData(-1, "用户已存在"));
+        } else {
+            //返回状态码0，注册成功
+            if(student.getEmail()==null){
+                student.setEmail("");
+            }
+            if(student.getPhone()==null){
+                student.setPhone("");
+            }
+            studentService.addStudent(student);
+            return ResponseEntity.ok(new ResponseData(0, "注册成功"));
+        }
+    }
+
 
     @GetMapping
     public ResponseEntity<List<Student>> list() {
@@ -85,4 +129,5 @@ public class StudentController {
             return new ResponseEntity<>("Student not found or delete failed", HttpStatus.NOT_FOUND);
         }
     }
+
 }

@@ -50,4 +50,11 @@ public class Student{
     private String password;
 
     // 省略getter和setter方法
+    public Student(String stuId, String name, String email, String phone, String password) {
+        this.stuId = stuId;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
 }

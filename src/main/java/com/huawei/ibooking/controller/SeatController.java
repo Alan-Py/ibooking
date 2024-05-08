@@ -22,7 +22,18 @@ public class SeatController {
     public SeatController(SeatService seatService) {
         this.seatService = seatService;
     }
-    //根据条件搜索当前的seat list
+
+    /***
+     * 根据条件搜索当前的seat list
+     * @param seatId
+     * @param roomId
+     * @param socket
+     * @param startTime
+     * @param endTime
+     * @param isToday
+     * @param isEmpty
+     * @return
+     */
     @GetMapping(value = "/search")
     public ResponseEntity<List<Seat>> getSeatList(
             @RequestParam(required = false) String seatId,

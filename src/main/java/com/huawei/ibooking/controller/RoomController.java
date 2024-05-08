@@ -25,8 +25,10 @@ public class RoomController {
     public RoomController(RoomService roomService) {
         this.roomService = roomService;
     }
-    // 获取所有房间信息
-
+    /***
+     * 获取所有房间信息
+     * @return
+     */
     @GetMapping
     public ResponseEntity<List<Room>> getAllRooms() {
         List<Room> rooms = roomService.getAllRooms();
@@ -42,7 +44,12 @@ public class RoomController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    // 添加房间信息
+
+    /***
+     * 管理员添加房间信息
+     * @param room
+     * @return
+     */
     @PostMapping
     public ResponseEntity<?> addRoom(@RequestBody Room room) {
         try {
@@ -59,7 +66,12 @@ public class RoomController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    // 更新房间信息
+
+    /***
+     * 管理员更新房间信息
+     * @param room
+     * @return
+     */
     @PutMapping(value = "/update")
     public ResponseEntity<?> updateRoom(@RequestBody Room room){
         boolean isSuccess = roomService.updateRoom(room);
