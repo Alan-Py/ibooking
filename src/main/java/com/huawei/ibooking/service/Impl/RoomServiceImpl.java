@@ -31,6 +31,7 @@ public class RoomServiceImpl implements RoomService{
 
     @Override
     public boolean updateRoom(Room room) {
+
         return roomMapper.updateById(room) > 0;
     }
 

@@ -1,27 +1,12 @@
-package com.huawei.ibooking.model;
+package com.huawei.ibooking.model.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-/**
- * <p>
- * 房间表
- * </p>
- *
- * @author panyue
- * @since 2024-04-09
- */
 @Data
-@NoArgsConstructor
-@TableName("room")
-public class Room {
+public class updateRoomReq {
     /**
      * 主键ID
      */
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
@@ -68,6 +53,4 @@ public class Room {
      * 房间是否开放
      */
     private Boolean open;
-
-    // 省略getter和setter方法
 }

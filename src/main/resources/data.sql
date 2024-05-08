@@ -2,12 +2,12 @@ INSERT INTO admin (id, admin_id, admin_name, password) VALUES (1,'10001', '张�
 INSERT INTO admin (id, admin_id, admin_name, password) VALUES (2,'10002', '李四', 'lisi123');
 INSERT INTO admin (id, admin_id, admin_name, password) VALUES (3,'10003', '王五', 'wangwu123');
 
-INSERT INTO room (id,room_id, room_name, building_id, seat_amount, open_time, close_time, overnight, max_booking_time, open) VALUES (1, 'R001', '第一会议室', 'B001', 50, 6, 20, FALSE, 6, TRUE);
-INSERT INTO room (id,room_id, room_name, building_id, seat_amount, open_time, close_time, overnight, max_booking_time, open) VALUES (2,'R002', '第二教室', 'B002', 60, 6, 20, FALSE, 6, TRUE);
-INSERT INTO room (id,room_id, room_name, building_id, seat_amount, open_time, close_time, overnight, max_booking_time, open) VALUES (3,'R003', '图书馆自习室', 'B003', 30, 6, 20, TRUE, 6, TRUE);
-INSERT INTO room (id,room_id, room_name, building_id, seat_amount, open_time, close_time, overnight, max_booking_time, open) VALUES (4,'R004', '多功能厅', 'B001', 200, 6, 20, FALSE, 6, TRUE);
+INSERT INTO room (id,room_id, room_name, building_id, seat_amount, open_time, close_time, overnight, max_booking_time, open) VALUES (1, 'R001', '第一会议室', 'B001', 50, 7, 22, FALSE, 4, TRUE);
+INSERT INTO room (id,room_id, room_name, building_id, seat_amount, open_time, close_time, overnight, max_booking_time, open) VALUES (2,'R002', '第二教室', 'B002', 60, 7, 22, FALSE, 4, TRUE);
+INSERT INTO room (id,room_id, room_name, building_id, seat_amount, open_time, close_time, overnight, max_booking_time, open) VALUES (3,'R003', '图书馆自习室', 'B003', 30, 7, 22, TRUE, 4, TRUE);
+INSERT INTO room (id,room_id, room_name, building_id, seat_amount, open_time, close_time, overnight, max_booking_time, open) VALUES (4,'R004', '多功能厅', 'B001', 200, 7, 22, FALSE, 4, TRUE);
 
-INSERT INTO seat (id, seat_id, room_id, socket,open, today_book, next_book) VALUES (1,'S001', 'R001', TRUE,TRUE, '000000000000000000000000', '000000000000000000000000');
+INSERT INTO seat (id, seat_id, room_id, socket,open, today_book, next_book) VALUES (1,'S001', 'R001', TRUE,TRUE, '000000001100000000000000', '000000000000000000000000');
 INSERT INTO seat (id, seat_id, room_id, socket,open, today_book, next_book) VALUES (2,'S002', 'R001', FALSE,TRUE, '000000000000000000000000', '000000000000000000000000');
 INSERT INTO seat (id, seat_id, room_id, socket,open, today_book, next_book) VALUES (3,'S003', 'R002', TRUE,TRUE, '000000000000000000000000', '000000000000000000000000');
 INSERT INTO seat (id, seat_id, room_id, socket,open, today_book, next_book) VALUES (4,'S004', 'R002', FALSE,TRUE,'000000000000000000000000', '000000000000000000000000');

@@ -44,25 +44,18 @@ public class SeatController {
             @RequestParam(required = false) Boolean isToday,
             @RequestParam(required = false) Boolean isEmpty)
     {
-        SeatReq seatReq = new SeatReq();
+        SeatReq seatReq = new SeatReq(seatId,roomId,socket,startTime,endTime,isToday,isEmpty);
         seatReq.setSeatId(seatId);
         seatReq.setRoomId(roomId);
         seatReq.setSocket(socket);
-        if(startTime != null) {
-            seatReq.setStartTime(startTime);
-        }
-        if(endTime != null) {
-            seatReq.setEndTime(endTime);
-        }
-        if(isToday != null) {
-            seatReq.setIsToday(isToday);
-        }
-        if(isEmpty != null) {
-            seatReq.setIsEmpty(isEmpty);
-        }
         System.out.println(seatReq.toString());
         List<Seat> seatList = seatService.getSeatList(seatReq);
-        return new ResponseEntity<>(seatList, HttpStatus.OK);
+        if(seatList == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }else{
+            return new ResponseEntity<>(seatList, HttpStatus.OK);
+        }
+
     }
     @GetMapping(value = "/getSeatBySeatId")
     public ResponseEntity<Seat> getSeatBySeatId(@RequestParam String seatId, @RequestParam String roomId){
