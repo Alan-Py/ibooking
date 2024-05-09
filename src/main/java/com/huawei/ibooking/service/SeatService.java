@@ -24,4 +24,7 @@ public interface SeatService {
     int updateNextBook(String seatId, String roomId, String nextBook);
     // 根据条件进行搜索座位，获取选定时段的空余座位
     List<Seat> getSeatList(SeatReq seatReq);
+
+    //更新座位信息
+    boolean updateSeat(Seat seat);
 }

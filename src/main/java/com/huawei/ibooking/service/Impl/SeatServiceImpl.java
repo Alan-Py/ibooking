@@ -61,4 +61,8 @@ public class SeatServiceImpl implements SeatService {
         }
         return seatList;
     }
+    @Override
+    public boolean updateSeat(Seat seat) {
+        return seatMapper.updateById(seat) > 0;
+    }
 }

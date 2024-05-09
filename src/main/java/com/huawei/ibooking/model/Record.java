@@ -41,12 +41,12 @@ public class Record {
     private String stuId;
 
     /**
-     * 预订开始时间（单位：分钟）
+     * 预订开始时间（单位：小时）
      */
     private Integer startTime;
 
     /**
-     * 预订结束时间（单位：分钟）
+     * 预订结束时间（单位：小时）
      */
     private Integer endTime;
 

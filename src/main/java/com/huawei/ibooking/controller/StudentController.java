@@ -59,6 +59,9 @@ public class StudentController {
             return ResponseEntity.ok(new ResponseData(-1, "用户已存在"));
         } else {
             //返回状态码0，注册成功
+            if(student.getName()==null){
+                student.setName("");
+            }
             if(student.getEmail()==null){
                 student.setEmail("");
             }
@@ -122,11 +125,11 @@ public class StudentController {
     public ResponseEntity<?> deleteStudent(@PathVariable("stuId") String stuId) {
         boolean result = studentService.deleteStudentById(stuId);
         if (result) {
-            // 删除成功，返回200 OK状态码和成功消息
-            return new ResponseEntity<>("Student deleted successfully", HttpStatus.OK);
+            // 删除成功，返回OK状态码和成功消息
+            return ResponseEntity.ok(new ResponseData(0, "成功"));
         } else {
-            // 删除失败，返回404 Not Found状态码和错误消息
-            return new ResponseEntity<>("Student not found or delete failed", HttpStatus.NOT_FOUND);
+            // 删除失败，返回-1状态码和错误消息
+            return ResponseEntity.ok(new ResponseData(-1, "删除失败"));
         }
     }
 
