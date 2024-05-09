@@ -1,12 +1,24 @@
-# Install
+# my_web
 
-    > npm install
+## Project setup
+```
+yarn install
+```
 
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
 
+### Compiles and minifies for production
+```
+yarn build
+```
 
-# Run
-    > npm run dev
+### Lints and fixes files
+```
+yarn lint
+```
 
-Navigation to http://localhost:8080 to view the site
-    
-
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
