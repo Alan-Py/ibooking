@@ -95,11 +95,16 @@ export default {
                 this.$message.success('登录成功');
                 localStorage.setItem('local_sid', this.param.stuId);
                 // localStorage.setItem('token', res.data.userPermission);
+                // localStorage.setItem('token', res.data.userPermission);
+
                 this.$router.push('/studyroom');
             }).catch(err => {
                 this.$message.error('登录失败');
             })
         },
+        // AdminsubmitForm() {
+        //     this.$router.push('/studyroom');
+        // },
         // AdminsubmitForm() {
         //     this.$router.push('/studyroom');
         // },

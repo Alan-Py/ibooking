@@ -11,6 +11,7 @@
                     <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
                         <i class="el-icon-rank"></i>
                     </el-tooltip>
+                <!-- jbncjkabdkbckbdck -->
                 </div>
                 <div class="user-avator">
                     <img src="../../assets/img/img.jpg" />
@@ -48,6 +49,7 @@ export default {
     methods: {
         handleCommand(command) {
             if (command == 'loginout') {
+                // jskdbcksjdbj
                 localStorage.removeItem('ms_username');
                 this.$router.push('/login');
             }
@@ -67,10 +69,12 @@ export default {
                     document.mozCancelFullScreen();
                 } else if (document.msExitFullscreen) {
                     document.msExitFullscreen();
+                    // hfvjhgjh
                 }
             } else {
                 if (element.requestFullscreen) {
                     element.requestFullscreen();
+                    // hgjkbbl
                 } else if (element.webkitRequestFullScreen) {
                     element.webkitRequestFullScreen();
                 } else if (element.mozRequestFullScreen) {

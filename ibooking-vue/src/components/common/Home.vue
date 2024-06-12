@@ -7,6 +7,7 @@
             <div class="content">
                 <transition name="move" mode="out-in">
                     <keep-alive :include="tagsList">
+                        <!-- hkjhblkj -->
                         <router-view></router-view>
                     </keep-alive>
                 </transition>
