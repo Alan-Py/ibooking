@@ -1,18 +1,30 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import router from './router';
-import store from './store';
-import './api/mock'
+import './assets/css/icon.css';
+import './components/common/directives';
+import 'babel-polyfill';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.use(ElementUI, {
+    size: 'small'
+});
 
-// 全局引入
-Vue.use(ElementUI);
+router.beforeEach((to, from, next) => {
+    document.title = `${to.meta.title} | study-room-manager`;
+    localStorage.setItem('token', 'admin')
+    localStorage.setItem('ms_username', 'admin')
+    const role = localStorage.getItem('token');
+    if (!role && to.path !== '/login') {
+        next('/login');
+    } else {
+        next();
+    }
+});
 
 new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app')
+    router,
+    render: h => h(App)
+}).$mount('#app');

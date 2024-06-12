@@ -1,31 +1,47 @@
-import axios from 'axios'
- 
-const http = axios.create({
-    // 通用请求的地址前缀
+import axios from 'axios';
+
+const service = axios.create({
     baseURL: '/api',
-    timeout: 10000, // 超时时间
-})
- 
+    timeout: 3000
+});
 
+service.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem('token');
+        if (config.method === 'post') {
+            config.params = {
+                ...config.params
+            }
+        } else if (config.method === 'get') {
+            config.params = {
+                ...config.params
+            }
+        } else if (config.method === 'put') {
+            config.params = {
+                // token: token,
+                ...config.params
+            }
+        } 
+        return config;
+    },
+    error => {
+        console.log(error);
+        return Promise.reject();
+    }
+);
 
-// // Add a request interceptor
-// axios.interceptors.request.use(function (config) {
-//     // Do something before request is sent
-//     return config;
-//   }, function (error) {
-//     // Do something with request error
-//     return Promise.reject(error);
-//   });
+service.interceptors.response.use(
+    response => {
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            Promise.reject();
+        }
+    },
+    error => {
+        console.log(error);
+        return Promise.reject();
+    }
+);
 
-// // Add a response interceptor
-// axios.interceptors.response.use(function (response) {
-//     // Do something with response data
-//     return response;
-//   }, function (error) {
-//     // Do something with response error
-//     return Promise.reject(error);
-//   });
-
-
-// 导出自定义的axios方法, 供外面调用传参发请求
-export default http
+export default service;

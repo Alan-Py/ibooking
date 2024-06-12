@@ -1,33 +1,69 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import User from '../views/User.vue'
-import Main from '../views/Main.vue'
-import Mall from '../views/Mall.vue'
-import PageOne from '../views/PageOne.vue'
-import PageTwo from '../views/PageTwo.vue'
-Vue.use(VueRouter)
+import Vue from 'vue';
+import Router from 'vue-router';
 
-const routes = [
-    // 主路由
-    {
-        path: '/',
-        component:Main,
-        redirect:'/home', // 重定向
-        children:[
-            // 子路由
-            { path: 'home', component: Home },
-            { path: 'user', component: User },
-            { path: 'mall', component: Mall },
-            { path: 'page1', component: PageOne },
-            { path: 'page2', component: PageTwo },
-        ]
-    }
-    
-]
+Vue.use(Router);
 
-const router = new VueRouter({
-    routes // (缩写) 相当于 routes: routes
-})
-
-export default router
+export default new Router({
+    routes: [
+        {
+            path: '/',
+            redirect: '/tabs'
+        },
+        {
+            path: '/',
+            component: () => import('../components/common/Home.vue'),
+            meta: { title: '自述文件' },
+            children: [
+                {
+                    path: '/tabs',
+                    component: () => import('../components/page/Dashboard.vue'),
+                    meta: { title: '预定记录' }
+                },
+                {
+                    path: '/404',
+                    component: () => import('../components/page/404.vue'),
+                    meta: { title: '404' }
+                },
+                {
+                    path: '/403',
+                    component: () => import('../components/page/403.vue'),
+                    meta: { title: '403' }
+                },
+                {
+                    path: '/seats',
+                    component: () => import('../components/page/seatfree.vue'),
+                    meta: { title: '座位查询' }
+                },
+                {
+                    path: '/studyroom',
+                    component: () => import('../components/page/studyroom.vue'),
+                    meta: { title: '自习室管理' }
+                },
+                {
+                    path: '/getstudyroom',
+                    component: () => import('../components/page/getstudyroom.vue'),
+                    meta: { title: '自习室查询' }
+                },
+                {
+                    path: '/qiangwei',
+                    component: () => import('../components/page/qiangwei.vue'),
+                    meta: { title: '学生抢位' }
+                },
+                {
+                    path: '/inform',
+                    component: () => import('../components/page/inform.vue'),
+                    meta: { title: '通知管理' }
+                }
+            ]
+        },
+        {
+            path: '/login',
+            component: () => import('../components/page/Login.vue'),
+            meta: { title: '登录' }
+        },
+        {
+            path: '*',
+            redirect: '/404'
+        }
+    ]
+});
