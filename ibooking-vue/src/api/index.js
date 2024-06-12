@@ -60,23 +60,6 @@ export const deleteAppointment = query => {
         method: 'get'
     });
 };
-// //学生查看预约记录
-// export const getRecord = query => {
-//     return request({
-//         url: 'student/record/list',
-//         method: 'get',
-//         data: query
-//     });
-// };
-
-// //学生取消预约
-// export const deleteAppointment = query => {
-//     return request({
-//         url: 'student/cancel/',
-//         method: 'get',
-//         data: query
-//     });
-// };
 
 //管理员登录
 export const adminLogin = query => {
