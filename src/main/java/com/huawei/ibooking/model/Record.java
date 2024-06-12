@@ -59,4 +59,14 @@ public class Record {
      * 预订状态
      */
     private Integer status;
+
+    public Record(String seatId, String roomId, String stuId, Integer startTime, Integer endTime, String bookingDate, Integer status) {
+        this.seatId = seatId;
+        this.roomId = roomId;
+        this.stuId = stuId;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.bookingDate = new Date();
+        this.status = status;
+    }
 }

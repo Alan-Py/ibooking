@@ -6,7 +6,6 @@ import com.huawei.ibooking.model.Room;
 import com.huawei.ibooking.model.dto.addRoomReq;
 import com.huawei.ibooking.model.dto.updateRoomReq;
 import com.huawei.ibooking.service.RoomService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
